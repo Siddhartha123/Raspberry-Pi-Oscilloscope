@@ -18,19 +18,17 @@
 #define _kernel_h
 
 #include <circle_stdlib_app.h>
-#include <setjmp.h>
 
-class CKernel : public CStdlibAppScreen
+class CKernel : public CStdlibAppStdio
 {
 public:
 	CKernel (void);
-
+	u16 read_adc();
 	TShutdownMode Run (void);
 
 private:
-	jmp_buf m_JumpBuf;
-
-	void DoLongJmp (void);
+	u8 TxData[2] = {0x0C | 0, 0x00};
+	u8 RxBuffer[2];
 };
 
 #endif

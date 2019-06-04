@@ -16,53 +16,57 @@
 //
 #include "kernel.h"
 
-#include <stdio.h>
-#include <math.h>
-#include <stdlib.h>
-#include <errno.h>
-
-#define SPI_CLOCK_SPEED 32000 // Hz
-#define SPI_CPOL 0
-#define SPI_CPHA 0
-#define SPI_CHIP_SELECT 0 // Mode 0
-
-u8 TxData[2] = {0x0C | 0, 0x00};
-u8 RxBuffer[2];
-u16 data;
+#include <string>
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <exception>
+#include <memory>
+#include <cassert>
 
 CKernel::CKernel(void)
-	: CStdlibAppScreen("RPi-Oscilloscope")
+	: CStdlibAppStdio("RPi-Oscilloscope")
 {
 	mActLED.Blink(5); // show we are alive
 }
 
-u16 read_adc(CSPIMaster mSPIMaster)
+u16 CKernel::read_adc(void)
 {
 	if (mSPIMaster.WriteRead(SPI_CHIP_SELECT, TxData, RxBuffer, 2))
 	{
-		data = (u16)RxBuffer[0];
+		u16 data = (u16)RxBuffer[0];
 		data = data << 4 | RxBuffer[1];
 		return data;
 	}
-	else
-		return -1;
-}
-
-void CKernel::DoLongJmp(void)
-{
-	longjmp(m_JumpBuf, 42);
+	return 0;
 }
 
 CStdlibApp::TShutdownMode CKernel::Run(void)
 {
-	u16 d = 0;
+
 	CString Message;
 	Message.Format("\n\n\n\n\n\n");
+
+	/*Create a Label on the currently active screen*/
+	lv_obj_t *label1 = lv_label_create(lv_scr_act(), NULL);
+	u16 data;
 	while (1)
 	{
-		d = read_adc(mSPIMaster);
-		Message.Format("\b\b\b\b\b%4d\n", d);
-		mScreen.Write((const char *)Message, Message.GetLength());
+		for (volatile unsigned i = 1; i <= 10000000; i++)
+			;
+		data = read_adc();
+		Message.Format("\b\b\b\b\b%4d\n", data);
+
+		/*Modify the Label's text*/
+		lv_label_set_text(label1, Message);
+
+		/* Align the Label to the center
+        * NULL means align on parent (which is the screen now)
+        * 0, 0 at the end means an x, y offset after alignment*/
+		lv_obj_align(label1, NULL, LV_ALIGN_CENTER, 0, 0);
+		m_GUI.Update();
 	}
-	return ShutdownReboot;
+
+	return ShutdownHalt;
 }
