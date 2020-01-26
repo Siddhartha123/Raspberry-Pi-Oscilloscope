@@ -65,7 +65,7 @@ CStdlibApp::TShutdownMode CKernel::Run(void)
         * NULL means align on parent (which is the screen now)
         * 0, 0 at the end means an x, y offset after alignment*/
 		lv_obj_align(label1, NULL, LV_ALIGN_CENTER, 0, 0);
-		m_GUI.Update();
+		mGUI.Update();
 	}
 
 	return ShutdownHalt;

@@ -17,6 +17,8 @@
 #ifndef _kernel_h
 #define _kernel_h
 
+#define SPI_CHIP_SELECT 0
+
 #include <circle_stdlib_app.h>
 
 class CKernel : public CStdlibAppStdio
