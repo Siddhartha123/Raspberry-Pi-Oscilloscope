@@ -44,7 +44,7 @@ def read_adc():
     global idx, oldest_idx, n
     idx = idx+1
     oldest_idx = (oldest_idx+1) % n
-    samples[oldest_idx] = 240+120*math.sin(idx*3.141/180)+20*random.random()
+    samples[oldest_idx] = 240+120*int(math.sin(idx*3.141/180)+20*random.random())
     return samples[oldest_idx]
 
 
