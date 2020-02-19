@@ -1,0 +1,170 @@
+{
+    "fonts": [
+    ],
+    "images": [
+    ],
+    "lvgl": {
+        "name": "Rpi-Oscilloscope",
+        "resolution": {
+            "height": 480,
+            "width": 640
+        },
+        "widgets": [
+            {
+                "accessible": false,
+                "class": "lv_cont",
+                "geometry": {
+                    "height": 404,
+                    "width": 100,
+                    "x": 539,
+                    "y": 33
+                },
+                "layout": "Off",
+                "locked": false,
+                "name": "container_1",
+                "styles": [
+                    {
+                        "base": "lv_style_pretty",
+                        "body": {
+                            "grad_color": "#000000",
+                            "main_color": "#000000",
+                            "radius": 2
+                        },
+                        "type": "LV_CONT_STYLE_MAIN"
+                    }
+                ],
+                "widget": "Container"
+            },
+            {
+                "accessible": false,
+                "class": "lv_cont",
+                "geometry": {
+                    "height": 96,
+                    "width": 92,
+                    "x": 543,
+                    "y": 137
+                },
+                "layout": "Off",
+                "locked": false,
+                "name": "container_2",
+                "styles": [
+                    {
+                        "base": "lv_style_pretty",
+                        "body": {
+                            "main_color": "#c0c0c0",
+                            "radius": 2
+                        },
+                        "type": "LV_CONT_STYLE_MAIN"
+                    }
+                ],
+                "widget": "Container"
+            },
+            {
+                "accessible": false,
+                "children": [
+                    {
+                        "accessible": false,
+                        "align": "Center",
+                        "body draw": false,
+                        "class": "lv_label",
+                        "geometry": {
+                            "height": 19,
+                            "width": 64,
+                            "x": 12,
+                            "y": 8
+                        },
+                        "locked": false,
+                        "long mode": "Expand",
+                        "name": "label_1",
+                        "recolor": false,
+                        "styles": [
+                            {
+                                "text": {
+                                    "color": "#ef2929",
+                                    "font": "Roboto 16",
+                                    "letter_space": 0,
+                                    "line_space": 2,
+                                    "opa": 255,
+                                    "sel_color": "#5596d8"
+                                },
+                                "type": "LV_LABEL_STYLE_MAIN"
+                            }
+                        ],
+                        "text": "Measure",
+                        "widget": "Label"
+                    }
+                ],
+                "class": "lv_cont",
+                "geometry": {
+                    "height": 96,
+                    "width": 92,
+                    "x": 543,
+                    "y": 37
+                },
+                "layout": "Off",
+                "locked": false,
+                "name": "container_3",
+                "styles": [
+                    {
+                        "base": "lv_style_pretty",
+                        "body": {
+                            "main_color": "#c0c0c0",
+                            "opa": 50,
+                            "radius": 2
+                        },
+                        "type": "LV_CONT_STYLE_MAIN"
+                    }
+                ],
+                "widget": "Container"
+            },
+            {
+                "accessible": false,
+                "class": "lv_cont",
+                "geometry": {
+                    "height": 96,
+                    "width": 92,
+                    "x": 543,
+                    "y": 237
+                },
+                "layout": "Off",
+                "locked": false,
+                "name": "container_4",
+                "styles": [
+                    {
+                        "base": "lv_style_pretty",
+                        "body": {
+                            "main_color": "#c0c0c0",
+                            "radius": 2
+                        },
+                        "type": "LV_CONT_STYLE_MAIN"
+                    }
+                ],
+                "widget": "Container"
+            },
+            {
+                "accessible": false,
+                "class": "lv_cont",
+                "geometry": {
+                    "height": 96,
+                    "width": 92,
+                    "x": 543,
+                    "y": 337
+                },
+                "layout": "Off",
+                "locked": false,
+                "name": "container_5",
+                "styles": [
+                    {
+                        "base": "lv_style_pretty",
+                        "body": {
+                            "main_color": "#c0c0c0",
+                            "radius": 2
+                        },
+                        "type": "LV_CONT_STYLE_MAIN"
+                    }
+                ],
+                "widget": "Container"
+            }
+        ]
+    }
+}
