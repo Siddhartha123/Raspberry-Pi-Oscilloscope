@@ -18,6 +18,8 @@ Key changes in header file:
 
 ### GUI development
 
+![image](UI/plot-area.png)
+
 The GUI is being developed using [LittlevGL](https://littlevgl.com) which is an open-source embedded GUI library.
 
 The folder gui-testing contains code that is being used to test certain graphics components on raspberry pi.
